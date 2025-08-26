@@ -41,6 +41,10 @@ Key outcome: I confirmed the file was malicious, identified C2 communication att
 
 ![File Analysis](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/Malware%20verification%20virus%20total.png?raw=true)
 
+![IPs](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/Contacted%20IPs.png?raw=true)
+
+![LogManagement](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/LogManagement%20C2.png?raw=true)
+
 ### Step 4: Log Analysis
 - Queried endpoint logs in SIEM for host `172.16.17.56`.  
 - Found 3 logs: 2 HTTPS and 1 HTTP request.  
