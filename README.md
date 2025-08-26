@@ -20,15 +20,26 @@ Key outcome: I confirmed the file was malicious, identified C2 communication att
 - Opened case and reviewed alert details.  
 - Investigated endpoint `172.16.17.56`.
 
+![Alert](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/Alert.png?raw=true)
+
+![Endpoint Analysis](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/Endpoint%20Process.png?raw=true)
+
 ### Step 2: Endpoint Analysis
 - Observed suspicious process: `POwersheLL.exe`.  
 - Terminal history showed directory commands followed by a PowerShell execution ~10 hours later.  
 - Gathered **file hash** for deeper analysis.
 
+![Terminal History](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/Terminal%20History.png?raw=true)
+
+![File Hash](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/Grabbed%20File%20Hash.png?raw=true)
+
 ### Step 3: Malware Verification
 - Submitted file hash to **VirusTotal**.  
 - Latest analysis (4 days ago) indicated the file contained a **malicious macro**.  
-- Determined user likely opened or executed the file (though not fully confirmed).  
+- Determined malicious connnections - searched in log managment.
+- Confirmed C2 address accessed
+
+![File Analysis](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/Malware%20verification%20virus%20total.png?raw=true)
 
 ### Step 4: Log Analysis
 - Queried endpoint logs in SIEM for host `172.16.17.56`.  
@@ -36,12 +47,18 @@ Key outcome: I confirmed the file was malicious, identified C2 communication att
 - Port 80 traffic revealed destination IP `35.189.10.17`.  
 - URL extracted and submitted to VirusTotal → flagged as **malicious**.
 
+![Log Analysis](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/Log%20Analysis.png?raw=true)
+
+![URL Analysis](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/url%20virus%20total.png?raw=true)
+
 ### Step 5: Response Actions
 - Applied playbook:
   - Quarantined affected endpoint.  
   - Confirmed malicious macro via VirusTotal.  
-  - Verified outbound C2 attempt but **no contact established**.  
+  - Verified outbound C2 accessed.
 - Created analyst notes and closed the alert.
+
+![Analyst Note](https://github.com/JustInCybersecurity/Suspicious-XLS-File-Analysis/blob/main/analyst%20note.png?raw=true)
 
 ---
 
